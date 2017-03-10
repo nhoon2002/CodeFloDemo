@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
+import Tasks from './Tasks.jsx';
+import Tasks2 from './Tasks2.jsx';
 
 class Home extends Component {
 	render() {
 		return (
-      <div className="container">
+        <div>
         <div className="jumbotron">
-          Hello. This is the Home page's jumbotron.
+
         </div>
-      </div>
+
+        <div className='row'>
+          <div className='col-md-6 col-sm-12 col-lg-4'><Tasks/></div>
+          <div className='col-md-6 col-sm-12 col-lg-4'><Tasks2/></div>
+        </div>
+        </div>
 
     );
   };

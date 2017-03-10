@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import profilepic from './profilepic.jpg'
+import SearchForm from './SearchForm.jsx';
 import './Header.css';
 export default function() {
   return(
@@ -27,6 +28,7 @@ export default function() {
           <li><a href="#">Teams</a></li>
 
         </ul>
+        <SearchForm/>
 
         <ul className="nav navbar-nav navbar-right">
           <li className="notifications-bar">
