@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import profilepic from './profilepic.jpg'
 import SearchForm from './SearchForm.jsx';
+import { Link } from 'react-router';
 import './Header.css';
 export default function() {
   return(
@@ -24,8 +25,9 @@ export default function() {
 
       <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul className="nav navbar-nav">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Teams</a></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/">Teams</Link></li>
+          <li><Link to="/profile">Profile</Link></li>
 
         </ul>
         <SearchForm/>
