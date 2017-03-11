@@ -16,17 +16,15 @@ export default function() {
           <span className="icon-bar"></span>
           <span className="icon-bar"></span>
         </button>
-        <a className="navbar-brand" href="#">
-          <span className="brand-name">CodeFlo.</span>
-          <img src='#' className="Header-logo" alt="logo" />
-        </a>
+          <img src='assets/img/logo-icon.png' className="Header-logo" alt="logo" />
+
       </div>
 
 
       <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul className="nav navbar-nav">
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/">Teams</Link></li>
+          <li><Link to="/todoform">ToDo</Link></li>
           <li><Link to="/profile">Profile</Link></li>
 
         </ul>
@@ -39,7 +37,7 @@ export default function() {
             </button>
           </li>
           <li>
-            <img className='navbar-profilepic img-circle' src="#" alt='profilepic'/>
+            <img className='navbar-profilepic img-circle' src='/assets/img/profilepic.jpg' alt='profilepic'/>
           </li>
           <li><a href="#">Logout</a></li>
 

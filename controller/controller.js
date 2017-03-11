@@ -7,12 +7,15 @@ var path = require('path');
 
 
 router.post('/tasks', function(req, res) {
-  console.log(req.body);
+  console.log("\n");
+  console.log("controller router post", req.body);
     var task = new Task(req.body);
     task.save(function(err, doc) {
       if(err) {
         console.log(err);
       } else {
+        console.log("\n");
+        console.log("docs",doc);
         res.send(doc);
       }
     });

@@ -13,8 +13,8 @@ class Tasks extends Component {
 
   postTodo(formInput) {
     console.log(formInput);
-    axios.post('/tasks', {task: formInput}).then((data) => {
-      console.log(data);
+    axios.post('/tasks', formInput).then((data) => {
+      console.log("DATA AFTER POST", data);
       this.setState({returnedTask: data.task});
     });
 
