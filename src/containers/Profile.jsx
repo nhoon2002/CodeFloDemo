@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-import ProfileItems from '../components/ProfileItems';
-import profilepic from '../components/profilepic.jpg';
+import ProfileItems from '../components/ProfileItems.jsx';
+// import profilepic from '../components/profilepic.jpg';
 
 const PROFILE_ITEMS = [
   {
     name: 'Alex Kim',
-    img: {profilepic},
+    img: "#",
     description: 'Hey, whatsup?'
   },
   {
     name: 'Alex Kim',
-    img: {profilepic},
+    img: "#",
     description: 'Hey, whatsup?'
   },
   {
     name: 'Alex Kim',
-    img: {profilepic},
+    img: "#",
     description: 'Hey, whatsup?'
   }
 

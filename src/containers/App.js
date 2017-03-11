@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import './App.css';
-import Header from '../components/Header';
+// import './App.css';
+import Header from '../components/Header.jsx';
 
 function getNiceName(routes) {
 	let path = (routes[routes.length - 1] || {}).path || 'Home';
@@ -13,9 +13,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        
+
           <h2>{getNiceName(this.props.routes)}{' '}</h2>
-        
+
 
         <div className="container App-content">
           {this.props.children}

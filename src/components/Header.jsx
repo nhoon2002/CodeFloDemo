@@ -1,9 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
-import profilepic from './profilepic.jpg'
+// import logo from './logo.svg';
+// import profilepic from './profilepic.jpg'
 import SearchForm from './SearchForm.jsx';
 import { Link } from 'react-router';
-import './Header.css';
+// import './Header.css';
 export default function() {
   return(
     <nav className="navbar navbar-default">
@@ -18,7 +18,7 @@ export default function() {
         </button>
         <a className="navbar-brand" href="#">
           <span className="brand-name">CodeFlo.</span>
-          <img src={logo} className="Header-logo" alt="logo" />
+          <img src='#' className="Header-logo" alt="logo" />
         </a>
       </div>
 
@@ -39,7 +39,7 @@ export default function() {
             </button>
           </li>
           <li>
-            <img className='navbar-profilepic img-circle' src={profilepic} alt='profilepic'/>
+            <img className='navbar-profilepic img-circle' src="#" alt='profilepic'/>
           </li>
           <li><a href="#">Logout</a></li>
 
