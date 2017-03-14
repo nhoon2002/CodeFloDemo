@@ -5,16 +5,16 @@ import ProfileItems from '../components/ProfileItems.jsx';
 const PROFILE_ITEMS = [
   {
     name: 'Alex Kim',
+    img: "assets/img/profilepic.jpg",
+    description: 'Hey, whatsup?'
+  },
+  {
+    name: 'Kevin Duong',
     img: "#",
     description: 'Hey, whatsup?'
   },
   {
-    name: 'Alex Kim',
-    img: "#",
-    description: 'Hey, whatsup?'
-  },
-  {
-    name: 'Alex Kim',
+    name: 'Henry Lee',
     img: "#",
     description: 'Hey, whatsup?'
   }
