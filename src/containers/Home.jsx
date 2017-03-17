@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import RegisterModal from '../components/RegisterModal.jsx'
+import LoginModal from '../components/LoginModal.jsx'
+
 // import Tasks from './Tasks.jsx';
 // import Tasks2 from './Tasks2.jsx';
 // import logo from './logo-full.png';
@@ -12,7 +14,8 @@ class Home extends Component {
         <div>
         <div className="jumbotron">
 						<h1>Welcome to <img id="logo" src="assets/img/logo-full.png" /></h1>
-						<button className="btn btn-primary loginButton">Sign In</button>
+						{/* <button className="btn btn-primary loginButton">Sign In</button> */}
+						<LoginModal/>
 						<RegisterModal/>
         </div>
 
