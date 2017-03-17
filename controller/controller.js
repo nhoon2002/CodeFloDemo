@@ -1,9 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var Task = require('../models/Task.js');
+var Task = require('../mongoModels/Task.js');
 var path = require('path');
 
+//Passport JS Set-up
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
+//MySQL database set-up
+var db = require('../models');
+
+//Sendgrid set-up
+// var email = require('../mail/email');
 
 
 router.post('/tasks', function(req, res) {
@@ -23,7 +31,60 @@ router.post('/tasks', function(req, res) {
 });
 
 
+router.post('/register', function(req, res){
 
+  console.log("REGISTER REQ.BODY", req.body);
+
+  var name = req.body.name;
+  var username = req.body.username;
+  var email = req.body.email;
+  var password = req.body.password;
+  var password2 = req.body.password2;
+
+  //Using express validator*************************************************************************
+
+  req.checkBody('name', 'Must type in name.').notEmpty();
+  req.checkBody('username', 'Must type in Username.').notEmpty();
+  req.checkBody('email', 'Must type in email.').notEmpty();
+  req.checkBody('email', 'Invalid Email').isEmail();
+  req.checkBody('password', 'Must type in password.').notEmpty();
+  req.checkBody('password2', 'Passwords do not match.').equals(req.body.password);
+
+  var errors = req.validationErrors();
+
+  if(errors){
+    console.log("FLASH ERRORS", errors)
+    res.json(errors);
+  }else{
+
+    db.users.findOne({
+      where: {
+        username: username
+      }
+    }).then(function(data){
+      if(data){
+        req.flash('Taken', 'That username is already taken.');
+
+        var taken = {
+          takenMsg: req.flash('Taken')
+        }
+
+
+        res.send(taken);
+      }else{
+
+        db.users.create(req.body).then(function(data){
+          console.log('\n\n')
+          console.log("POST REGISTER CALL BACK FUNCTION DATA", data);
+
+          res.json(data);
+          // Or redirect to another page.
+        });
+
+      }
+    });
+  }
+});
 
 router.get('*', function(req,res) {
   console.log('sup');

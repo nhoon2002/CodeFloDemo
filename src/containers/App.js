@@ -12,6 +12,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      
         <Header />
 
           <h2>{getNiceName(this.props.routes)}{' '}</h2>
