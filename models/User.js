@@ -1,55 +1,17 @@
-var mongoose = require("mongoose");
+var bcrypt = require('bcryptjs');
 
-var Schema = mongoose.Schema;
+module.exports = function(sequelize, DataTypes) {
 
-var UserSchema = new Schema({
-  firstName: {
-    type: String,
-    trim: true,
-    required: "First Name is Required"
-  },
-  lastName: {
-    type: String,
-    trim: true,
-    required: "Last Name is Required"
-  },
-  username: {
-    type: String,
-    trim: true,
-    required: "Username is Required"
-  },
-  password: {
-    type: String,
-    trim: true,
-    required: "Password is Required",
-    validate: [
-      function(input) {
-        return input.length >= 6;
-      },
-      "Password should be longer."
-    ]
-  },
-  email: {
-    type: String,
-    unique: true,
-    match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
-  },
-  userCreated: {
-    type: Date,
-    default: Date.now
-  },
-  lastUpdated: { type: Date
-  },
-  userAdmin: {
-    required: false
-  },
-  team: [{
-    type: Schema.Types.ObjectId,
-    ref: "Team"
-  }]
-});
+	var users = sequelize.define("users", {
+		name: DataTypes.STRING,
+		username: DataTypes.STRING,
+		password: DataTypes.STRING,
+		email: DataTypes.STRING
+	});
+	// , {
 
-var User = mongoose.model("User", UserSchema);
+	// 	//ALL OPTIONS FOR THIS MODEL IN HERE
 
-// Export the model so the server can use it
-module.exports = User;
+	// });
+	return users;
+}
