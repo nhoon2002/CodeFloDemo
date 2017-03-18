@@ -74,10 +74,11 @@ router.post('/register', function(req, res){
       }else{
 
         db.users.create(req.body).then(function(data){
+          req.session.user.id = data.id;
           console.log('\n\n')
           console.log("POST REGISTER CALL BACK FUNCTION DATA", data);
 
-          res.json(data);
+          res.json({data: data, session: req.session.userID});
           // Or redirect to another page.
         });
 

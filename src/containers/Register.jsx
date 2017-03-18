@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
+import connect from 'react-redux';
+
+//Importing all actions inside the userAction file. That way I can have multiple exports in userAction
+//file and use specific ones with dot notation kind of like an object. E.g: if userAction file had
+//a function called getUsers, I can invoke/call that function by doing user.getUsers(); 
+//To import just one action from the file just do: import { getUser } from '../actions/usersAction'
+//then call the function directly without the dot notation like so getUser();
+// import * as user from '../actions/usersAction'
+import { createUser } from '../actions/usersAction';
+
 import axios from 'axios';
+
 class Register extends Component {
 	constructor(props) {
 		super(props)

@@ -24,7 +24,8 @@ module.exports = {
         loader: "babel",
         query: {
           // These are the specific transformations we'll be using.
-          presets: ["react", "es2015"]
+          presets: ["react", "es2015"],
+          plugins: ['transform-class-properties', 'transform-decorators-legacy']
         }
       }
     ]

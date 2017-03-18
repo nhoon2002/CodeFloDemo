@@ -29,7 +29,8 @@ app.use(express.static("./public"));
 app.use(session({
 	secret: "DUUUUUUUUUDE",
 	resave: false,
-	saveUninitialized: true
+	saveUninitialized: true,
+	cookie: {maxAge: 60000}
 }));
 
 // -------------------------------------------------

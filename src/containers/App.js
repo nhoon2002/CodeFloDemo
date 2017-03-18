@@ -1,36 +1,34 @@
-import React, { PropTypes, Component } from 'react';
-// import './App.css';
-import Header from '../components/Header.jsx';
+import { bindActionCreators } from 'redux';
+import connect from 'react-redux';
 
-function getNiceName(routes) {
-	let path = (routes[routes.length - 1] || {}).path || 'Home';
-	return path.replace('/', '')
-			.toUpperCase() || 'Unknown Page';
+import * as actionsCreators from '../actions/userAction';
+import Main from './Main';
+
+/*******************/
+// Connects a React component to a Redux store. connect is a facade around connectAdvanced, providing a 
+// convenient API for the most common use cases.
+
+// It does not modify the component class passed to it; instead, it returns a new, connected component class
+// for you to use.
+function mapStateToProps (state) {
+	return {
+		user: state.user
+	}
 }
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-      
-        <Header />
+function mapDispatchToProps (dispatch) {
+	// return bindActionCreators(actionsCreators, dispatch);
 
-          <h2>{getNiceName(this.props.routes)}{' '}</h2>
+	return {
+	    handleForm: (formData) => {
+	      dispatch(createUser(formData))
+	    }
+	}
 
-
-        <div className="container App-content">
-          {this.props.children}
-        </div>
-      </div>
-
-    );
-
-  }
 }
 
-App.propTypes = {
-	children: PropTypes.node,
-	routes: PropTypes.array
-};
+
+const App = connect(mapStateToProps, mapDispatchToProps)(Main);
+/*******************/
 
 export default App;
