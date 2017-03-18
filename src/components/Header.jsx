@@ -1,7 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 // import profilepic from './profilepic.jpg'
-import SearchForm from './SearchForm.jsx';
+import AsyncExample from './SearchForm.jsx';
 import { Link } from 'react-router';
 // import './Header.css';
 export default function() {
@@ -26,9 +26,9 @@ export default function() {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/todoform">ToDo</Link></li>
           <li><Link to="/profile">Profile</Link></li>
+          <li><AsyncExample/></li>
 
         </ul>
-        <SearchForm/>
 
         <ul className="nav navbar-nav navbar-right">
           <li className="notifications-bar">

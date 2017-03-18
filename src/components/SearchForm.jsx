@@ -1,31 +1,49 @@
+
 import React, { Component }from 'react';
+import {AsyncTypeahead} from 'react-bootstrap-typeahead';
+const AsyncExample = React.createClass({
+  getInitialState() {
+    return {
+      options: [],
+    };
+  },
 
-class SearchForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: ''};
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
-  }
 
   render() {
     return (
-      <form className="navbar-form navbar-left" onSubmit={this.handleSubmit}>
-          <input type="text" className="form-control" placeholder="Search" value={this.state.value} onChange={this.handleChange} />
-          <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
-    );
-  }
-}
 
-export default SearchForm;
+      <AsyncTypeahead
+        labelKey="login"
+        onSearch={this._handleSearch}
+        options={this.state.options}
+        placeholder="Search for a user..."
+        renderMenuItemChildren={(option, props, index) => (
+          <div>
+            <img
+              src={option.avatar_url}
+              style={{
+                height: '24px',
+                marginRight: '10px',
+                width: '24px',
+              }}
+            />
+            <span>{option.login}</span>
+            {/* .login is the username field from the github response. */}
+          </div>
+
+        )}
+      />
+    );
+  },
+
+  _handleSearch(query) {
+    if (!query) {
+      return;
+    }
+
+    fetch(`https://api.github.com/search/users?q=${query}`)
+      .then(resp => resp.json())
+      .then(json => this.setState({options: json.items}));
+  },
+});
+export default AsyncExample;
