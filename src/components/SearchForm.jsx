@@ -1,5 +1,5 @@
-
-import React, { Component }from 'react';
+import axios from 'axios';
+import React, { Component, Props }from 'react';
 import {AsyncTypeahead} from 'react-bootstrap-typeahead';
 const AsyncExample = React.createClass({
   getInitialState() {
@@ -12,27 +12,30 @@ const AsyncExample = React.createClass({
   render() {
     return (
 
+
       <AsyncTypeahead
-        labelKey="login"
+        labelKey="username"
         onSearch={this._handleSearch}
         options={this.state.options}
         placeholder="Search for a user..."
         renderMenuItemChildren={(option, props, index) => (
           <div>
             <img
-              src={option.avatar_url}
+              src='http://placehold.it/50x50'
               style={{
                 height: '24px',
                 marginRight: '10px',
                 width: '24px',
               }}
             />
-            <span>{option.login}</span>
+            <span>{option.username}</span>
             {/* .login is the username field from the github response. */}
           </div>
 
         )}
       />
+
+
     );
   },
 
@@ -41,9 +44,17 @@ const AsyncExample = React.createClass({
       return;
     }
 
-    fetch(`https://api.github.com/search/users?q=${query}`)
+
+    fetch(`/register/${query}`)
       .then(resp => resp.json())
-      .then(json => this.setState({options: json.items}));
+      // // .then(json => console.log(this))
+      .then(json => this.setState({options: json}))
+
+
+      // this.setState({options: data})
+
+
+
   },
 });
 export default AsyncExample;
