@@ -11,9 +11,9 @@ class Main extends Component {
         <Header />
 
         <div className="container Main-content">
-        <View>
+    
           {React.cloneElement(this.props.children, this.props)}
-        </View>
+    
         </div>
       </div>
 
