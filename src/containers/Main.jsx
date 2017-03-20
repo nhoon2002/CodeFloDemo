@@ -1,11 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import Header from '../components/Header.jsx';
 
-function getNiceName(routes) {
-	let path = (routes[routes.length - 1] || {}).path || 'Home';
-	return path.replace('/', '')
-			.toUpperCase() || 'Unknown Page';
-}
+
 
 class Main extends Component {
   render() {
@@ -14,11 +10,10 @@ class Main extends Component {
 
         <Header />
 
-          <h2>{getNiceName(this.props.routes)}{' '}</h2>
-
-
         <div className="container Main-content">
-          React.cloneElement(this.props.children, this.props)
+        <View>
+          {React.cloneElement(this.props.children, this.props)}
+        </View>
         </div>
       </div>
 

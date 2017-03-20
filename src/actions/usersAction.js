@@ -3,13 +3,6 @@ import axios from 'axios';
 
 export function createUser() {
 	return function(dispatch) {
-		// axios.get('/user')
-		// .then((response) => {
-		// 	dispatch({ type: "GET_USER", payload: response.data })
-		// })
-		// .catch((err) => {
-		// 	dispatch({ type: "GET_USER_ERROR", payload: err })
-		// })
 		axios.post('/register', formInput).then((data) => {
 			console.log("RETURN DATA FROM AXIOS REGISTER POST", data);
 			console.log('\n\n');

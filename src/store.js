@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore, compose } from "Redux";
+import { applyMiddleware, createStore, compose } from "redux";
 
 //Connect react router with redux
 import { syncHistoryWithStore } from "react-router-redux";
@@ -11,8 +11,14 @@ import thunk from "redux-thunk";
 
 import promise from "redux-promise-middleware";
 
-import reducer from './reducers/index.js';
+import rootReducer from './reducers';
+
 
 const middleware = applyMiddleware(promise(), thunk, logger());
 
-export default createStore(reducer, middleware);
+const store = createStore(rootReducer, middleware);
+
+export const history = syncHistoryWithStore(browserHistory, store);
+
+
+export default store;

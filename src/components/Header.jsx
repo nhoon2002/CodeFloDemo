@@ -6,6 +6,7 @@ import { Link } from 'react-router';
 // import './Header.css';
 export default function() {
   return(
+    <div>
     <nav className="navbar navbar-default">
     <div className="container-fluid">
 
@@ -46,5 +47,6 @@ export default function() {
       </div>
     </div>
   </nav>
+  </div>
 );
 }

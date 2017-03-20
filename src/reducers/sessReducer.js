@@ -1,6 +1,10 @@
 //Make a reducer file for each state in the store (which is like the main database for redux)
 //Every reducer runs every time there is an action, whether something actually changes in state is up to
 //programmer.
+
+//Reducer does the editing of the state, which is just a slice of data of the entire store.
+
+//Everytime an action is dispatched, every single reducer will run. We control which reducers do something with the action types
 export default function reducer(state={
 		isLoggedIn: "",
 		sessionUserID: "",
@@ -12,10 +16,9 @@ export default function reducer(state={
 		case "SET_REGIST_SESS": {
 			// req.session.isLogged = true;
 			// req.session.user_id = action.payload.id;
-			return { 
-				...state, 
+			return { ...state, 
 				isLoggedIn: true,
-				sessionUserID: //set the data set to req session here,
+				// sessionUserID: //set the data set to req session here,
 				user: action.payload
 			}
 		}
