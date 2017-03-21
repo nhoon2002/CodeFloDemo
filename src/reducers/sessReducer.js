@@ -5,7 +5,7 @@
 //Reducer does the editing of the state, which is just a slice of data of the entire store.
 
 //Everytime an action is dispatched, every single reducer will run. We control which reducers do something with the action types
-export default function reducer(state={
+export function registerReducer(state={
 		isLoggedIn: "",
 		sessionUserID: "",
 		user: "",
@@ -34,7 +34,14 @@ export default function reducer(state={
 		// case "GET_USER_ERROR": {
 		// 	return {...state, error: payload.err }
 		// }
+		default: {
+			return state;
+		}
 	}
 
 	return state;
 }
+
+// export function allData(state = {}, action){
+// 	return state;
+// }

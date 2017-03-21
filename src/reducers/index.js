@@ -2,10 +2,11 @@ import { combineReducers } from "redux";
 import { routerReducer } from "react-router-redux";
 
 // import users from "./userReducer";
-import sesh from "./sessReducer";
+import { registerReducer/*, allData*/ } from "./sessReducer";
 
 const rootReducer = combineReducers({
-	sesh,
+	registerReducer,
+	// allData,
 	routing: routerReducer
 });
 export default rootReducer;

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 // import makeRoutes from './routes.jsx';
 // import store from './store';
 // import { Provider } from 'react-redux';
-// import routes from './routes.jsx';
+import theRoutes from './routes.jsx';
 import Main from './containers/Main.jsx';
 
 
@@ -12,7 +12,7 @@ import Main from './containers/Main.jsx';
 ReactDOM.render(
 	// <Provider store={store}>
 	// {routes}
-	<Main />
+	theRoutes
 	/*</Provider>*/,
 	document.getElementById('root')
 );

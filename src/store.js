@@ -12,7 +12,12 @@ import thunk from "redux-thunk";
 import promise from "redux-promise-middleware";
 
 import rootReducer from './reducers/index.js';
+// axsios
 
+// const initialState = {
+// 	allData: 123,
+// 	sesssion
+// }
 
 const middleware = applyMiddleware(promise(), thunk, logger());
 

@@ -1,9 +1,9 @@
-// import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-// import * as actionsCreators from '../actions/userAction';
+import * as actionsCreators from '../actions/usersAction';
 import Main from './Main.jsx';
-import { createUser } from '../actions/userAction'
+// import { createUser } from '../actions/usersAction'
 /*******************/
 // Connects a React component to a Redux store. connect is a facade around connectAdvanced, providing a 
 // convenient API for the most common use cases.
@@ -11,17 +11,19 @@ import { createUser } from '../actions/userAction'
 // It does not modify the component class passed to it; instead, it returns a new, connected component class
 // for you to use.
 function mapStateToProps (state) {
-	return state;
+	return {
+		allData: state
+	};
 }
 
 function mapDispatchToProps (dispatch) {
-	// return bindActionCreators(actionsCreators, dispatch);
+	return bindActionCreators(actionsCreators, dispatch);
 
-	return {
-	    handleForm: (formData) => {
-	      dispatch(createUser(formData))
-	    }
-	}
+	// return {
+	//     handleForm: (formData) => {
+	//       dispatch(createUser(formData))
+	//     }
+	// }
 
 }
 

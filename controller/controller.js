@@ -62,19 +62,21 @@ router.post('/register', function(req, res){
         username: username
       }
     }).then(function(data){
-      if(data){
-        req.flash('Taken', 'That username is already taken.');
+      console.log("DATA USER NAME", data.username)
+      if(data.username){
+        console.log("INSIDE USERNAME VALIDATION")
+        // req.flash('Taken', 'That username is already taken.');
 
-        var taken = {
-          takenMsg: req.flash('Taken')
-        }
+        // var taken = {
+        //   takenMsg: req.flash('Taken')
+        // }
 
 
-        res.send(taken);
+        res.send(data);
       }else{
 
         db.users.create(req.body).then(function(data){
-          req.session.user.id = data.id;
+          req.session.userID = data.id;
           console.log('\n\n')
           console.log("POST REGISTER CALL BACK FUNCTION DATA", data);
 
