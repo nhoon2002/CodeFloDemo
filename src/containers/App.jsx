@@ -21,7 +21,7 @@ function mapStateToProps (state) {
 		userAfReg: state.sessionReducer.user,
 		sessionUserId: state.sessionReducer.sessionUserID,
 		isLoggedInReg: state.sessionReducer.isLoggedIn,
-		Modal: state. modalReducer.showModal
+		Modal: state.modalReducer.showModal
 	};
 }
 

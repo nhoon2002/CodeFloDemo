@@ -11,7 +11,8 @@ const Home = React.createClass ({
         <div>
         <div className="jumbotron">
 						<h1>Welcome to</h1>
-						<Register/>
+						<Register modalProps={this.props}/>
+						{/* Have to pass props to nested components. The nested component can access this.props by calling this.props.modalProps... */}
         </div>
 
         </div>

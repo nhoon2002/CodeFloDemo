@@ -41,6 +41,7 @@ class Header extends React.Component {
           </li>
           <li>
             <img className='navbar-profilepic img-circle' src='/assets/img/profilepic.jpg' alt='profilepic'/>
+            {this.props.propps.sessionUserId}
           </li>
           <li><a href="#">Logout</a></li>
 

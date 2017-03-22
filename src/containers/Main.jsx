@@ -7,10 +7,10 @@ class Main extends Component {
   render() {
     return (
       <div className="Main">
+         <Header propps={this.props}/>
 
 
         <div className="container Main-content">
-          <Header />
           {React.cloneElement(this.props.children, this.props)}
 
 

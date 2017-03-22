@@ -31,6 +31,6 @@ export function openModal() {
 }
 export function closeModal() {
 	return function(dispatch) {
-		dispatch({ type: "CLOSE_MODAL", payload: true})
+		dispatch({ type: "CLOSE_MODAL", payload: false})
 	}
 }
