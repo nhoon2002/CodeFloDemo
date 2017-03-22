@@ -18,7 +18,8 @@ import axios from 'axios';
 class Register extends Component {
 		constructor(props) {
 			super(props);
-			this.state = {showModal : false};
+
+
 
 			this.open = this.open.bind(this)
 			this.close = this.close.bind(this)
@@ -41,11 +42,11 @@ class Register extends Component {
 			this.props.createUser(formInput);
 		}
 		close() {
-			this.setState({ showModal: false });
+			this.props.closeModal()
 		}
 
 		open() {
-			this.setState({ showModal: true });
+			this.props.openModal()
 		}
 
 		render() {
@@ -82,7 +83,8 @@ class Register extends Component {
 				Register
 			</Button>
 
-			<Modal show={this.state.showModal} onHide={this.close}>
+
+			<Modal show={this.props.Modal} onHide={this.props.Modal}>
 				<Modal.Header closeButton>
 					<Modal.Title>Register</Modal.Title>
 				</Modal.Header>

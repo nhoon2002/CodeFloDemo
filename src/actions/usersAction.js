@@ -17,7 +17,20 @@ export function createUser(formData) {
 					user: data.data.data
 					}
 				});
+
 			}
 		});
+	}
+}
+
+
+export function openModal() {
+	return function(dispatch) {
+		dispatch({ type: "OPEN_MODAL", payload: true})
+	}
+}
+export function closeModal() {
+	return function(dispatch) {
+		dispatch({ type: "CLOSE_MODAL", payload: true})
 	}
 }
