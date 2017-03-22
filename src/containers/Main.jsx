@@ -8,12 +8,12 @@ class Main extends Component {
     return (
       <div className="Main">
 
-        <Header />
 
         <div className="container Main-content">
-    
+          <Header />
           {React.cloneElement(this.props.children, this.props)}
-    
+
+
         </div>
       </div>
 

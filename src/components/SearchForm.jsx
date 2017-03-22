@@ -21,11 +21,12 @@ const AsyncExample = React.createClass({
         renderMenuItemChildren={(option, props, index) => (
           <div>
             <img
-              src='http://placehold.it/50x50'
+              className='img-circle'
+              src='http://placehold.it/30x30'
               style={{
-                height: '24px',
-                marginRight: '10px',
-                width: '24px',
+
+                marginRight: '10px'
+
               }}
             />
             <span>{option.username}</span>

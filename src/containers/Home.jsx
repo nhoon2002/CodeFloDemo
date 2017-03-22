@@ -1,5 +1,5 @@
 import React from 'react';
-// import RegisterModal from '../components/RegisterModal.jsx'
+import Register from './Register.jsx'
 // import LoginModal from '../components/LoginModal.jsx'
 
 
@@ -11,6 +11,7 @@ const Home = React.createClass ({
         <div>
         <div className="jumbotron">
 						<h1>Welcome to</h1>
+						<Register/>
         </div>
 
         </div>

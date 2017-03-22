@@ -1,10 +1,12 @@
 import React from 'react';
+import connect from 'react-redux';
 // import logo from './logo.svg';
 // import profilepic from './profilepic.jpg'
 import AsyncExample from './SearchForm.jsx';
 import { Link } from 'react-router';
 // import './Header.css';
-export default function() {
+class Header extends React.Component {
+  render() {
   return(
     <div>
     <nav className="navbar navbar-default">
@@ -50,3 +52,6 @@ export default function() {
   </div>
 );
 }
+}
+
+export default Header;
