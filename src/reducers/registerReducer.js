@@ -5,30 +5,16 @@
 //Reducer does the editing of the state, which is just a slice of data of the entire store.
 
 //Everytime an action is dispatched, every single reducer will run. We control which reducers do something with the action types
-export function sessionReducer(state={
-		isLoggedIn: false,
-		sessionUserID: "",
-		user: ""
-	}, action ) {
+export function registerReducer(state={ errorMsgs: "" }, action ) {
 
 	switch (action.type) {
-		case "SET_REGIST_SESS": {
-			console.log("ACTION PAYLOAD SUCCES REGISTER", action.payload);
-			// req.session.isLogged = true;
-			// req.session.user_id = action.payload.id;
-			return { ...state, 
-				isLoggedIn: true,
-				sessionUserID: action.payload.sessionUserId,
-				user: action.payload.user
+		case "ERROR_MSGS": {
+			console.log("ERROR PAYLOAD", action.payload)
+			return { 
+				...state,
+				errorMsgs: action.payload 
 			}
 		}
-		// case "ERROR_MSGS": {
-		// 	console.log("ERROR PAYLOAD", action.payload)
-		// 	return { 
-		// 		...state,
-		// 		errorMsgs: action.payload 
-		// 	}
-		// }
 		// case "GET_USER": {
 		// 	return { ...state, user: }
 		// }

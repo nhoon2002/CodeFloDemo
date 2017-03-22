@@ -34,21 +34,22 @@ class Register extends Component {
 		}
 
 		render() {
+			console.log("ERROR MESSAGES", this.props.errorMsgs);
 			
-				// const errs = this.state.errors;
+				const errs = this.props.errorMsgs;
 
-				// let success = null;
-				// let msg = null;
-				// console.log("errrs", errs)
-				// if(errs){
-				// 	//if putting curly brackets after the arrow function, remember to return the dom elements, in this
-				// 	//case the div messages. If no curly brakcets are used, the items return directly. Either way is 
-				// 	//okay, it is preference.
-				// 	msg = this.state.errArr.map((item, index) => 
-				// 	 <div key={index} className="alert alert-warning">{item.msg}</div>	
-				// 	);
-				// }
-				// console.log('msg', msg)
+				let success = null;
+				let msg = null;
+				console.log("errrs", errs)
+				if(errs){
+					//if putting curly brackets after the arrow function, remember to return the dom elements, in this
+					//case the div messages. If no curly brakcets are used, the items return directly. Either way is 
+					//okay, it is preference.
+					msg = this.props.errorMsgs.map((item, index) => 
+					 <div key={index} className="alert alert-warning">{item.msg}</div>	
+					);
+				}
+				console.log('msg', msg)
 
 					// can also directly put the messages inline the return below instead of mapping and assigning it 
 					// to an variable (msg);
@@ -59,19 +60,19 @@ class Register extends Component {
 
 			
 		return ( <div>
-			{/*errs ? msg : success*/}
+			
 			<form className="form-signin">
-				{/*errs ? msg[0] : success*/}
+				{errs ? msg[0] : success}
 				<div className="form-group">
 				    <label htmlFor="inputName" className="sr-only">Name</label>
 				    <input type="text" ref="name" id="inputName" className="form-control" placeholder="Name" />
 				</div>
-				{/*errs ? msg[1] : success*/}
+				{errs ? msg[1] : success}
 				<div className="form-group">
 				    <label htmlFor="inputUsername" className="sr-only">Username</label>
 				    <input type="text" ref="username" id="inputUsername" className="form-control" placeholder="Username" />
 				</div>
-				{/*errs ? msg[4] : success*/}
+				{errs ? msg[4] : success}
 				<div className="form-group">
 				    <label htmlFor="inputPassword" className="sr-only">Password</label>
 				    <input type="password" ref="password" id="inputPassword" className="form-control" placeholder="Password" />
@@ -81,8 +82,8 @@ class Register extends Component {
 				    <label htmlFor="inputPassword2" className="sr-only">Password</label>
 				    <input type="password" ref="password2" id="inputPassword2" className="form-control" placeholder="Password" />
 				 </div>
-				 {/*errs ? msg[2] : success*/}
-				 {/*errs ? msg[3] : success*/}
+				 {errs ? msg[2] : success}
+				 {errs ? msg[3] : success}
 				 <div className="form-group">
 				    <label htmlFor="inputEmail" className="sr-only">Email</label>
 				    <input type="email" ref="email" id="inputEmail" className="form-control" placeholder="Email" />

@@ -11,8 +11,16 @@ import Main from './Main.jsx';
 // It does not modify the component class passed to it; instead, it returns a new, connected component class
 // for you to use.
 function mapStateToProps (state) {
+	//the property names in the return data, have to be the same names as NAME OF THE REDUCER FUNCTION.
+	//The state parameter in the mapStateToProps is being brought in from the inital states defined 
+	//in the reducers.
+	console.log("mapStateToProps DATA", state)
 	return {
-		allData: state
+		allData: state,
+		errorMsgs: state.registerReducer.errorMsgs,
+		userAfReg: state.sessionReducer.user,
+		sessionUserId: state.sessionReducer.sessionUserID,
+		isLoggedInReg: state.sessionReducer.isLoggedIn 
 	};
 }
 

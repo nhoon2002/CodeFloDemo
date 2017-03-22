@@ -2,11 +2,12 @@ import { combineReducers } from "redux";
 import { routerReducer } from "react-router-redux";
 
 // import users from "./userReducer";
-import { registerReducer/*, allData*/ } from "./sessReducer";
+import { registerReducer } from "./registerReducer";
+import { sessionReducer } from "./sessReducer"
 
 const rootReducer = combineReducers({
 	registerReducer,
-	// allData,
+	sessionReducer,
 	routing: routerReducer
 });
 export default rootReducer;
