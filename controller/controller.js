@@ -43,6 +43,7 @@ router.post('/register', function(req, res){
 
   //Using express validator*************************************************************************
 
+
   req.checkBody('name', 'Must type in name.').notEmpty();
   req.checkBody('username', 'Must type in Username.').notEmpty();
   req.checkBody('email', 'Must type in email.').notEmpty();
@@ -104,6 +105,7 @@ router.get('/register/:query', function(req,res) {
 
 
     });
+
 
 });
 
