@@ -8,10 +8,11 @@ import Home from './containers/Home.jsx';
 import Profile from './containers/Profile.jsx';
 import TodoForm from './containers/TodoForm.jsx';
 import Register from './containers/Register.jsx';
-// import { connect } from 'react-redux';
+import NewProject from './containers/NewProject.jsx';
+
 
 // @connect((store) => {
-// 	sessions: 
+// 	sessions:
 // })
 const theRoutes = (
    	<Provider store={store}>
@@ -21,6 +22,7 @@ const theRoutes = (
 		      <Route path="/profile" component= {Profile} />
 		      <Route path="/todoform" component= {TodoForm} />
 		      <Route path="/register" component= {Register} />
+		      <Route path="/newProject" component= {NewProject} />
 		    </Route>
 		</Router>
 	</Provider>

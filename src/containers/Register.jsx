@@ -76,7 +76,7 @@ class Register extends Component {
 				// ) : success}
 
 
-	return ( <div className="jumbotron">
+	return ( <div>
 		<Button
 			bsStyle="primary"
 			onClick={this.open}

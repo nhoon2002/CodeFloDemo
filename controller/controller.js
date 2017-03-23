@@ -109,6 +109,20 @@ router.get('/register/:query', function(req,res) {
 
 });
 
+router.get('/register/users', function(req,res) {
+   db.users.find(
+      {
+         where: {
+         username: {$ne: null}
+      }
+   }).then(function(data) {
+      console.log('AXIOS GET FOR /register/users');
+      console.log(data);
+
+      res.json(data);
+   })
+})
+
 router.get('*', function(req,res) {
   console.log('sup');
   res.sendFile(path.join(__dirname + "/../public/index.html"));
