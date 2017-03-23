@@ -10,8 +10,8 @@ module.exports = function(sequelize, DataTypes) {
 	});
 	// , {
 
-	// 	//ALL OPTIONS FOR THIS MODEL IN HERE 
-		
+	// 	//ALL OPTIONS FOR THIS MODEL IN HERE
+
 	// });
 	return users;
 }
