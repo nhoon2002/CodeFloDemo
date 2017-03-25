@@ -3,7 +3,9 @@
 // -Enter Project Description
 // -Add Project Tags (Tech stack, techonologies, industry, etc)
 //
+
 // if 1) Submit (update Team data for User model)
+
 // else if 2) Add Members
 //
 // 1: Submit Team to Database (1 member -- curentUser), redirect to Project Home
@@ -11,48 +13,35 @@
 //   - Invite to Project
 //
 //
+import React, { Component } from 'react';
 
-
-import React, { Component, Props }from 'react';
-import axios from 'axios';
-// import Register from './Register.jsx'
-import UserInfo from '../components/UserInfo.jsx'
-
-
-
-
+import ProjectForm from '../components/forms/ProjectForm.jsx';
+import ProjectList from '../components/forms/ProjectList.jsx';
 class NewProject extends Component {
-   constructor(props) {
-     super(props);
-     this.state = {} ;
+
+
+
+	render(){
+   return(
+		 <div className='container'>
+
+		      <ProjectForm
+
+		         open={this.props.openModalT}
+		         close={this.props.closeModalT}
+		         show={this.props.teamModal}
+		         create={this.props.createTeam}
+						 router={this.props.router}
+						//  updateTeams = {this.props.updateTeams
+		      />
+
+
+						<ProjectList {...this.props}/>
+
+
+		</div>
+   )
    }
+}
 
-   componentWillMount() {
-      axios.get('/register/users').then((response) => {
-         console.log(response);
-         this.setState({
-            usernames: response
-         });
-      })
-   }
-
-   render() {
-     return (
-        <div>
-           {this.state.response}
-           {/* {this.state.options.map((option, index) => <UserInfo users={option} key={index} i={index}/>)} */}
-        </div>
-
-
-
-
-
-
-
-
-
-
-     )
-   }
- };
- export default NewProject;
+export default NewProject;

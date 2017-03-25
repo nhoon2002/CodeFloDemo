@@ -1,45 +1,31 @@
-import React, { Component } from 'react';
+var React = require('react');
+var moment = require('moment');
 
-class Todo extends Component {
-    constructor(props) {
-        super(props)
+var Todo = React.createClass({
+  render: function () {
+    var {id, text, completed, createdAt, completedAt} = this.props;
+    var renderDate = () => {
+      var message = 'Created ';
+      var timestamp = createdAt;
 
-        this.state = {
-            task: ""
-        }
+      if (completed) {
+        message = 'Completed ';
+        timestamp = completedAt;
+      }
 
-        this.checkTodo = this.checkTodo.bind(this);
-        this.handleTask = this.handleTask.bind(this);
-    }
+      return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mm a');
+    };
 
+    return (
+      <div onClick={() => {
+          this.props.onToggle(id);
+        }}>
+        <input type="checkbox" checked={completed}/>
+        <p>{text}</p>
+        <p>{renderDate()}</p>
+      </div>
+    )
+  }
+});
 
-    checkTodo(event) {
-        this.setState({
-            task: event.target.value
-        })
-    }
-
-    handleTask(event) {
-
-        var userTask = {
-            task: this.state.task
-        }
-
-        this.props.postTodo(userTask);
-    }
-
-    render() {
-        return <div>
-            <form action="/friend-book/register" method="POST" className="form-signin">
-                <div className="form-group">
-                    {/* <label for="inputTodo" className="sr-only">Add To Do</label> */}
-                    <input type="text" name="name" id="inputTodo" className="form-control" placeholder="Add a task" value={this.state.name}
-                    onChange={this.checkTodo} />
-                </div>
-                <button className="btn btn-lg btn-primary btn-block" type="button" onClick={this.handleTask}>Submit</button>
-            </form>
-        </div>;
-    }
-}
-
-export default Todo;
+module.exports = Todo;

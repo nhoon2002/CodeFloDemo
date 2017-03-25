@@ -6,23 +6,29 @@ import App from './containers/App.jsx';
 // import Main from './containers/Main.jsx';
 import Home from './containers/Home.jsx';
 import Profile from './containers/Profile.jsx';
-import TodoForm from './containers/TodoForm.jsx';
+// import TodoApp from './containers/TodoApp.jsx';
 import Register from './containers/Register.jsx';
 import NewProject from './containers/NewProject.jsx';
+import ProjectDetails from './containers/ProjectDetails.jsx'
+import { checkSession } from './actions/usersAction';
+
+// <Route path="/register" onEnter={checkSesh()} component= {Register} />
+const checkSesh = () => {
+	console.log("INSIDE CHECK SESH FUNCTION");
+	store.dispatch(checkSession());
+}
 
 
-// @connect((store) => {
-// 	sessions:
-// })
 const theRoutes = (
    	<Provider store={store}>
 	  	<Router history={history}>
 		    <Route path="/" component={App}>
-		      <IndexRoute component={Home}/>
-		      <Route path="/profile" component= {Profile} />
-		      <Route path="/todoform" component= {TodoForm} />
-		      <Route path="/register" component= {Register} />
-		      <Route path="/newProject" component= {NewProject} />
+
+		      <IndexRoute onEnter={checkSesh} component={Home}/>
+		      <Route path="/profile" onEnter={checkSesh} component= {Profile} />
+		      <Route path="/newproject" onEnter={checkSesh} component= {NewProject} />
+		      <Route path="/newproject/:id" onEnter={checkSesh} component= {ProjectDetails} />
+
 		    </Route>
 		</Router>
 	</Provider>

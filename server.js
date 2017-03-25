@@ -1,5 +1,3 @@
-// Include Server Dependencies
-//ajkgakjsg
 var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
@@ -39,9 +37,13 @@ app.use(session({
 }));
 
 // -------------------------------------------------
-
+var databaseUri = "mongodb://localhost/sampledatabse10";
+if (process.env.MONGODB_URI) {
+	mongoose.connect(process.env.MONGODB_URI);
+} else {
+	mongoose.connect(databaseUri)
+}
 // MongoDB configuration (Change this URL to your own DB)
-mongoose.connect("mongodb://localhost/sampledatabse");
 var database = mongoose.connection;
 
 
@@ -76,19 +78,10 @@ passport.use(new LocalStrategy(
     	where: {
     		username: username
     	}
-
-
-      // if (!user.validPassword(password)) {
-      //   return done(null, false, { message: 'Incorrect password.' });
-      // }
-      // return done(null, user);
     }).then(function(user){
-    	// if(err) {return done(err);}
     	if (!user) {
         	return done(null, false, { message: 'Incorrect username.' });
       	}
-      	//Instance methods can only be used when certain instances of sequelized are used such as create. Not
-		//all instances of sequelize can use instance methods.
     	user.passwordVerify(password, user.password, function(err, match){
     		console.log('\n\n')
     		console.log("err was", err);
@@ -134,36 +127,6 @@ passport.deserializeUser(function(user, done) {
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function(req, res, next){
-	//res.locals has global scope.
-	// res.locals.error_msg = req.flash('error_msg');
-	// res.locals.error = req.flash('error');
-	//This had to be req.user instead of req.session, since user is what gets returns from the passport
-	//deserialize function.
-	// res.locals.guy = req.user || null;
-
-  if (req.user) {
-    req.session.user = {
-      id: req.user.id,
-      name: req.user.name,
-      username: req.user.username,
-      email: req.user.email,
-      description: req.user.description,
-      img: req.user.img
-    };
-  }
-
-  	console.log('SUCCES MESSAGE', res.locals.succes_msg);
-	console.log('locals user', res.locals.user);
-	console.log('session one', req.session);
-	console.log('session user', req.session.user);
-	console.log('req.user', req.user);
-	next(); //Needed to call the next here to call the next app.use middleware. Before
-	//I didnt have this, the app.use('/', routes) was never getting executed since the next() was not being
-	//called.
-});
-
-
 // -------------------------------------------------
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
@@ -184,9 +147,10 @@ app.use(expressValidator({
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
+    console.log("USERNAME IS PASSPORT.USE", username)
     db.users.findOne({
     	where: {
-    		username: username
+    		email: username
     	}
 
 
@@ -259,14 +223,12 @@ app.use(function(req, res, next){
       id: req.user.id,
       name: req.user.name,
       username: req.user.username,
-      email: req.user.email,
-      description: req.user.description,
-      img: req.user.img
+      email: req.user.email
     };
   }
 
-  console.log('SUCCES MESSAGE', res.locals.succes_msg);
-	console.log('locals user', res.locals.user);
+ //  console.log('SUCCES MESSAGE', res.locals.succes_msg);
+	// console.log('locals user', res.locals.user);
 	console.log('session one', req.session);
 	console.log('session user', req.session.user);
 	console.log('req.user', req.user);

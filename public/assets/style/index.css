@@ -80,14 +80,17 @@ li:hover{
 
  .jumbotron {
   height: 300px;
-  background-image: url("../img/jumbo.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  -webkit-background-size: cover;
-  background-size: cover;
+
+ }
+ .home {
+   background-image: url("../img/jumbo.jpg");
+   background-repeat: no-repeat;
+   background-position: center;
+   -webkit-background-size: cover;
+   background-size: cover;
  }
 
- h1 {
+ h1 .homeBanner {
    padding-top: 90px;
    color: #fff;
    text-align: left;
@@ -133,5 +136,26 @@ li:hover{
 .actionButtons {
 
   margin: 10px;
+  margin-left: 245px;
 
+}
+
+.jumbotron.teams {
+  background-color: #B2EBF2;
+  text-align: center;
+  overflow: auto;
+}
+.jumbotron.teams h1 {
+  color: #B29600;
+}
+.editUsername:hover {
+  cursor: pointer;
+}
+.editSkills:hover {
+  cursor: pointer;
+}
+
+.createButton {
+  width: 100%;
+  margin-bottom: 20px;
 }
