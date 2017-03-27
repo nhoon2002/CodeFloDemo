@@ -1,3 +1,4 @@
+//Convert to redux
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
